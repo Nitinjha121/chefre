@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import "../styles/Home.css";
 import RecipeCard from "./RecipeCard";
 import { useSelector, useDispatch } from "react-redux";
@@ -6,8 +6,8 @@ import { useLocation } from "react-router-dom";
 import idAction from "../actions/idAction";
 
 function Home() {
-  const { search, isLoading } = useSelector((state) => state.search);
-  const { data } = useSelector((state) => state.data);
+  const { search, isLoading, err } = useSelector((state) => state.search);
+  // const { data } = useSelector((state) => state.data);
   const dispatch = useDispatch();
 
   const { hash } = useLocation();
@@ -27,7 +27,7 @@ function Home() {
   return (
     <div className="home">
       <div className="home__left" onClick={clickHandler}>
-        {search.length
+        {search?.length
           ? search.map((recipe) => (
               <RecipeCard
                 title={recipe.title}
@@ -38,6 +38,7 @@ function Home() {
             ))
           : ""}
         {isLoading ? <div className="lds-dual-ring spinner"></div> : ""}
+        {err ? <div>{err}</div> : ""}
       </div>
       <div className="home__right"></div>
     </div>

@@ -1,6 +1,7 @@
 const initialState = {
   search: [],
   isLoading: false,
+  err: "",
 };
 
 const searchReducer = (state = initialState, action) => {
@@ -15,6 +16,11 @@ const searchReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
+      };
+    case "ERROR":
+      return {
+        ...state,
+        err: action.payload.err,
       };
     default:
       return { ...state };
