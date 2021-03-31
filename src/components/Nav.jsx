@@ -22,7 +22,7 @@ function Nav() {
     <div className="nav">
       <div className="nav__icon">
         <img src={icon} alt="icon" className="nav__logo" />
-        <p className="nav__name">Chefre</p>
+        <h1 className="nav__name">Chefre</h1>
       </div>
       <form className="nav__search" onSubmit={submitHandler}>
         <input className="nav__searchInput" onChange={inputHandler} />

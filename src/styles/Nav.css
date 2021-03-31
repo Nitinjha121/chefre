@@ -25,6 +25,11 @@
   display: flex;
   width: 40%;
 }
+
+.nav__name {
+  font-family: "Dancing Script", sans-serif;
+}
+
 .nav__searchInput {
   border-radius: 30px;
   outline: none;
