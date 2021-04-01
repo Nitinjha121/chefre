@@ -1,5 +1,5 @@
 const initialState = {
-  data: [],
+  data: {},
 };
 
 const idReducer = (state = initialState, action) => {

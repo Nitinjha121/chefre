@@ -8,6 +8,10 @@
   position: relative;
 }
 
+.nav a {
+  cursor: pointer;
+}
+
 .nav__icon {
   position: absolute;
   left: 5%;

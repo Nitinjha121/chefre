@@ -11,6 +11,7 @@ function Nav() {
   const inputHandler = function (e) {
     e.preventDefault();
     input = e.target.value;
+    e.target.value = "";
   };
 
   const submitHandler = function (e) {
@@ -21,7 +22,10 @@ function Nav() {
   return (
     <div className="nav">
       <div className="nav__icon">
-        <img src={icon} alt="icon" className="nav__logo" />
+        <a href="/">
+          {" "}
+          <img src={icon} alt="icon" className="nav__logo" />
+        </a>
         <h1 className="nav__name">Chefre</h1>
       </div>
       <form className="nav__search" onSubmit={submitHandler}>

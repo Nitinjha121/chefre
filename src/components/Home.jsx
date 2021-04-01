@@ -1,25 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/Home.css";
 import RecipeCard from "./RecipeCard";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import idAction from "../actions/idAction";
+import OneRecipe from "./OneRecipe";
 
 function Home() {
   const { search, isLoading, err } = useSelector((state) => state.search);
-  // const { data } = useSelector((state) => state.data);
+  const { data } = useSelector((state) => state.data);
   const dispatch = useDispatch();
 
   const { hash } = useLocation();
 
-  if (hash) dispatch(idAction(hash.slice(1)));
+  useEffect(() => {
+    if (hash) {
+      dispatch(idAction(hash.slice(1)));
+    }
+  }, [dispatch, hash]);
 
   const clickHandler = function (e) {
-    console.log(e);
-    console.log(typeof e.target.offsetWidth);
     if (e.target.offsetWidth <= 570) {
       if (hash) {
-        e.target.style.display = "none";
+        e.target.parentElement.style.display = "none";
       }
     }
   };
@@ -40,7 +43,16 @@ function Home() {
         {isLoading ? <div className="lds-dual-ring spinner"></div> : ""}
         {err ? <div>{err}</div> : ""}
       </div>
-      <div className="home__right"></div>
+      <div className="home__right">
+        {data.title && (
+          <OneRecipe
+            img={data.image?.replace("556x370", "636x393")}
+            instruction={data.instructions}
+            src={data.sourceUrl}
+            title={data.title}
+          />
+        )}
+      </div>
     </div>
   );
 }
