@@ -3,10 +3,12 @@ import "../styles/Nav.css";
 import { useDispatch } from "react-redux";
 import SearchAction from "../actions/SearchAction";
 import icon from "../img/icon.svg";
+import { useHistory } from "react-router-dom";
 
 function Nav() {
   const dispatch = useDispatch();
   let input;
+  const history = useHistory();
 
   const inputHandler = function (e) {
     e.preventDefault();
@@ -20,13 +22,19 @@ function Nav() {
     e.target.blur();
   };
 
+  const logoHandler = function () {
+    history.push("/");
+  };
+
   return (
     <div className="nav">
       <div className="nav__icon">
-        <a href="/">
-          {" "}
-          <img src={icon} alt="icon" className="nav__logo" />
-        </a>
+        <img
+          src={icon}
+          onClick={logoHandler}
+          alt="icon"
+          className="nav__logo"
+        />
         <h1 className="nav__name">Chefre</h1>
       </div>
       <form className="nav__search" onSubmit={submitHandler}>

@@ -8,10 +8,6 @@
   position: relative;
 }
 
-.nav a {
-  cursor: pointer;
-}
-
 .nav__icon {
   position: absolute;
   left: 5%;
@@ -23,6 +19,7 @@
   height: 50px;
   width: 50px;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .nav__search {
@@ -32,6 +29,7 @@
 
 .nav__name {
   font-family: "Dancing Script", sans-serif;
+  cursor: default;
 }
 
 .nav__searchInput {

@@ -44,7 +44,7 @@ function Home() {
         {err ? <div>{err}</div> : ""}
       </div>
       <div className="home__right">
-        {data.title && (
+        {hash && (
           <OneRecipe
             img={data.image?.replace("556x370", "636x393")}
             instruction={data.instructions}
