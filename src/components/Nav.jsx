@@ -11,12 +11,13 @@ function Nav() {
   const inputHandler = function (e) {
     e.preventDefault();
     input = e.target.value;
-    e.target.value = "";
   };
 
   const submitHandler = function (e) {
     e.preventDefault();
     dispatch(SearchAction(input));
+    e.target["0"].value = "";
+    e.target.blur();
   };
 
   return (

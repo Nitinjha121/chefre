@@ -20,7 +20,7 @@ function Home() {
   }, [dispatch, hash]);
 
   const clickHandler = function (e) {
-    if (e.target.offsetWidth <= 570) {
+    if (e.target.parentElement.offsetWidth <= 570) {
       if (hash) {
         e.target.parentElement.style.display = "none";
       }

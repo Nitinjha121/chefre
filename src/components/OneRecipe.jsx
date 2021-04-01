@@ -7,7 +7,7 @@ function OneRecipe({ instruction, src, img, title }) {
       <img src={img} alt={title} />
       <h1>{title}</h1>
       <p>{instruction}</p>
-      <a href={src} target="_blank">
+      <a href={src} target="_blank" rel="noreferrer">
         <button className="recipe__btn">Source Link</button>
       </a>
     </div>
